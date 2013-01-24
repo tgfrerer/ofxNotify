@@ -24,6 +24,13 @@ Remember, you can also pass in numbers, without extra fuss (even if you want to 
 
 Don't forget to include a call to ofxNotify::draw(); in your draw loop!
 
+## Example File 
+
+Included. See reference render:
+
+![image](http://poniesandlight.co.uk/img/ref-render-ofxNotify.png "ofxNotify Reference Render")
+
+
 ## Dependencies
 
 Nil. 
