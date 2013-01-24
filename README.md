@@ -24,7 +24,7 @@ Remember, you can also pass in numbers, without extra fuss (even if you want to 
 
 Don't forget to include a call to ofxNotify::draw(); in your draw loop!
 
-## Example File 
+## Example Project 
 
 Included. See reference render:
 
