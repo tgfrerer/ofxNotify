@@ -4,7 +4,7 @@ Growl-style onscreen logging for openFrameworks. Because sometime, you just want
 
 ## Description
 
-ofxNotify will render strings to the top left of your screen, and forget all about them after a set time. 
+ofxNotify will render strings to the top right of your screen, and forget all about them after a set time. 
 
 ## Motivation
 
