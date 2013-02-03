@@ -92,10 +92,9 @@ void ofxNotify::draw(bool shouldDraw_){
 ofxNotify::~ofxNotify() {
 	if (msgMutex.tryLock()){
 		if(!bPrinted){
-			if(message.str().empty()){
-				message;
+			if(!message.str().empty()){
+				messages[ofGetElapsedTimeMicros()] = message.str();
 			}
-			messages[ofGetElapsedTimeMicros()] = message.str();
 		}
 		msgMutex.unlock();
 	}
