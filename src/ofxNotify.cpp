@@ -46,7 +46,7 @@ void ofxNotify::setMessagesLifeTime(int messageLifeTimeInMilliseconds_){
 
 // ----------------------------------------------------------------------
 
-void ofxNotify::draw(){
+void ofxNotify::draw(bool shouldDraw_){
 	
 	if (messages.empty()) return;
 	
@@ -54,16 +54,18 @@ void ofxNotify::draw(){
 	
 	unsigned long long elapsedTimeNow = ofGetElapsedTimeMicros();
 	
-	int i = 0;
-	
 	map<unsigned long long, string>::iterator it = messages.begin();
-	while (it != messages.end()){
-		ofDrawBitmapStringHighlight(it->second, ofGetWidth() - (it->second.size()*8 + 16), 50 + i*20,
-									(i == messages.size()-1) ? (ofColor::red) : (ofColor::black));
-		it++;
-		i++;
+
+	if (shouldDraw_){
+		int i = 0;
+		while (it != messages.end()){
+			ofDrawBitmapStringHighlight(it->second, ofGetWidth() - (it->second.size()*8 + 16), 50 + i*20,
+										(i == messages.size()-1) ? (ofColor::red) : (ofColor::black));
+			it++;
+			i++;
+		}
 	}
-	
+
 	it = messages.begin();
 	bool hasFoundDeadMessage = false;
 	

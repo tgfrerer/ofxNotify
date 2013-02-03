@@ -57,7 +57,7 @@ public:
 	virtual ~ofxNotify();
 
 	// draw the notifier by calling ofxNotify::draw(); from within your app.
-	static void draw();
+	static void draw(bool shouldDraw_ = true);
 	static void setMessagesLifeTime(int messageLifeTimeInMilliseconds_);
 	
 	// catch the << ostream with a template class to read any type of data
