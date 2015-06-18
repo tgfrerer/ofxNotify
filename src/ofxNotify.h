@@ -1,7 +1,7 @@
 //
 //     _____    ___     
 //    /    /   /  /     ofxNotify
-//   /  __/ * /  /__    (c) ponies & light, 2013. All rights reserved.
+//   /  __/ * /  /__    (c) ponies & light, 2013, 2015. All rights reserved.
 //  /__/     /_____/    poniesandlight.co.uk
 //
 //  ofxNotify.h
@@ -25,10 +25,13 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 
-#ifndef GUARD__ghost_client__ofxNotify__
-#define GUARD__ghost_client__ofxNotify__
+#ifndef GUARD__ofxNotify__
+#define GUARD__ofxNotify__
 
-#include "ofMain.h"
+#include <sstream>
+#include <string>
+#include <map>
+#include <mutex>
 
 // Use ofxNotify just as you would use modern ofLog(), by using the stream "<<" operator.
 //
@@ -43,11 +46,11 @@
 // Don't forget to include a call to ofxNotify::draw(); in your draw loop!
 
 class ofxNotify {
-	static ofMutex							msgMutex;
-	static map<unsigned long long, string>	messages;
-	static int								messageLifeTimeInMilliseconds;		// defaults to 2000ms
-	std::ostringstream						message;
-	bool									bPrinted;
+	static std::mutex									msgMutex;
+	static std::map<unsigned long long, std::string>	messages;
+	static int											messageLifeTimeInMilliseconds;		// defaults to 2000ms
+	std::ostringstream									message;
+	bool												bPrinted;
 public:
 
 	ofxNotify()
@@ -76,4 +79,4 @@ public:
 };
 
 
-#endif /* defined(__ghost_client__ofxNotify__) */
+#endif /* defined(GUARD__ofxNotify__) */

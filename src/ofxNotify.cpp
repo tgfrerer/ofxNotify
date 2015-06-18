@@ -26,6 +26,7 @@
 // THE SOFTWARE.
 
 #include "ofxNotify.h"
+#include "ofMain.h"
 
 // ----------------------------------------------------------------------
 // Static class variables
@@ -78,7 +79,7 @@ void ofxNotify::draw(bool shouldDraw_){
 		}
 	}
 	
-	if (hasFoundDeadMessage && msgMutex.tryLock()){
+	if (hasFoundDeadMessage && msgMutex.try_lock()){
 		messages.erase(messages.begin(), it);
 		msgMutex.unlock();
 	}
@@ -90,7 +91,7 @@ void ofxNotify::draw(bool shouldDraw_){
 // ----------------------------------------------------------------------
 
 ofxNotify::~ofxNotify() {
-	if (msgMutex.tryLock()){
+	if (msgMutex.try_lock()){
 		if(!bPrinted){
 			if(!message.str().empty()){
 				messages[ofGetElapsedTimeMicros()] = message.str();
